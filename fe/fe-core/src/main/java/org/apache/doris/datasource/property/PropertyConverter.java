@@ -42,8 +42,6 @@ import com.google.common.collect.Maps;
 import org.apache.hadoop.fs.aliyun.oss.AliyunOSSFileSystem;
 import org.apache.hadoop.fs.cosn.CosNConfigKeys;
 import org.apache.hadoop.fs.cosn.CosNFileSystem;
-import org.apache.hadoop.fs.obs.OBSConstants;
-import org.apache.hadoop.fs.obs.OBSFileSystem;
 import org.apache.hadoop.fs.s3a.Constants;
 import org.apache.hadoop.fs.s3a.S3AFileSystem;
 import org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider;

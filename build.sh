@@ -461,22 +461,22 @@ if [[ "${BUILD_FE}" -eq 1 ]]; then
 fi
 if [[ "${BUILD_SPARK_DPP}" -eq 1 ]]; then
     modules+=("fe-common")
-    modules+=("spark-dpp")
+    #modules+=("spark-dpp")
 fi
 if [[ "${BUILD_HIVE_UDF}" -eq 1 ]]; then
     modules+=("fe-common")
-    modules+=("hive-udf")
+    #modules+=("hive-udf")
 fi
 if [[ "${BUILD_BE_JAVA_EXTENSIONS}" -eq 1 ]]; then
     modules+=("fe-common")
-    modules+=("be-java-extensions/hudi-scanner")
+    #modules+=("be-java-extensions/hudi-scanner")
     modules+=("be-java-extensions/java-common")
-    modules+=("be-java-extensions/java-udf")
-    modules+=("be-java-extensions/jdbc-scanner")
-    modules+=("be-java-extensions/paimon-scanner")
-    modules+=("be-java-extensions/max-compute-scanner")
-    modules+=("be-java-extensions/avro-scanner")
-    modules+=("be-java-extensions/preload-extensions")
+    #modules+=("be-java-extensions/java-udf")
+    #modules+=("be-java-extensions/jdbc-scanner")
+    #modules+=("be-java-extensions/paimon-scanner")
+    #modules+=("be-java-extensions/max-compute-scanner")
+    #modules+=("be-java-extensions/avro-scanner")
+    #modules+=("be-java-extensions/preload-extensions")
 fi
 FE_MODULES="$(
     IFS=','

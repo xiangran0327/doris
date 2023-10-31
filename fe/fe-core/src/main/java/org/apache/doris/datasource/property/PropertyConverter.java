@@ -162,27 +162,12 @@ public class PropertyConverter {
     private static Map<String, String> convertToOBSProperties(Map<String, String> props,
                                                               CloudCredential credential) {
         Map<String, String> obsProperties = Maps.newHashMap();
-        obsProperties.put(OBSConstants.ENDPOINT, props.get(ObsProperties.ENDPOINT));
-        obsProperties.put(ObsProperties.FS.IMPL_DISABLE_CACHE, "true");
-        obsProperties.put("fs.obs.impl", getHadoopFSImplByScheme("obs"));
-        if (credential.isWhole()) {
-            obsProperties.put(OBSConstants.ACCESS_KEY, credential.getAccessKey());
-            obsProperties.put(OBSConstants.SECRET_KEY, credential.getSecretKey());
-        }
-        if (credential.isTemporary()) {
-            obsProperties.put(ObsProperties.FS.SESSION_TOKEN, credential.getSessionToken());
-        }
-        for (Map.Entry<String, String> entry : props.entrySet()) {
-            if (entry.getKey().startsWith(ObsProperties.OBS_FS_PREFIX)) {
-                obsProperties.put(entry.getKey(), entry.getValue());
-            }
-        }
         return obsProperties;
     }
 
     public static String getHadoopFSImplByScheme(String fsScheme) {
         if (fsScheme.equalsIgnoreCase("obs")) {
-            return OBSFileSystem.class.getName();
+            return AliyunOSSFileSystem.class.getName();
         } else if (fsScheme.equalsIgnoreCase("oss")) {
             return AliyunOSSFileSystem.class.getName();
         } else if (fsScheme.equalsIgnoreCase("cosn")) {
